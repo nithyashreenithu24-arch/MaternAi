@@ -40,34 +40,51 @@ The application uses a strict **Role-Based Access Control (RBAC)** system. Unlik
 
 ---
 
-## 4. Local Setup & VS Code Execution
+## 4. Running Locally in VS Code (Zero Configuration)
+
+You can run this application locally in Visual Studio Code with **zero code modifications**.
 
 ### Prerequisites
-- **Node.js (v20 or higher)**: [Download here](https://nodejs.org/)
-- **NPM (included with Node.js)**
-- **Git** (optional, for cloning)
+* **Node.js**: v18 or v20+ recommended ([Download Node.js](https://nodejs.org/))
+* **VS Code**: Visual Studio Code editor
 
-*Note: If you just installed Node.js, you may need to **restart VS Code** or your computer for the `npm` command to be recognized in your terminal.*
+### 3 Simple Steps to Run:
 
-### Setup Instructions
-To run this project in **VS Code**:
+1. **Open the project folder in VS Code**:
+   * File ➔ Open Folder... ➔ select this project directory.
 
-1.  **Clone/Download** the repository to your local machine.
-2.  **Open Folder**: Open the project folder in VS Code.
-3.  **Install Dependencies**: Open a new terminal (`Ctrl+` `) and run:
-    ```bash
-    npm install
-    ```
-    *If you get an error saying 'npm' is not recognized, please ensure Node.js is installed from the link above.*
-4.  **Environment Setup**: Create a `.env` file in the root directory (based on `.env.example`) and add your Gemini API Key:
-    ```env
-    GEMINI_API_KEY="your_google_gemini_api_key"
-    ```
-5.  **Run Development Server**:
-    ```bash
-    npm run dev
-    ```
-6.  **Access the App**: Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+2. **Open the Integrated Terminal in VS Code**:
+   * Press ``Ctrl + ` `` (Windows/Linux) or ``Cmd + ` `` (Mac).
+
+3. **Install and Start**:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+4. **Open in Browser**:
+   * Navigate to **[http://localhost:3000](http://localhost:3000)** in Chrome, Edge, Safari, or Firefox.
+
+> **Note on Environment Variables & API Keys**:
+> * **No API Key is required to run**: All Machine Learning models (GDM & Cervical Cancer risk estimators), precision nutrition engines, visual telemetry charts, doctor/patient/admin dashboards, and daily medication adherence progress calendars run **100% locally on your machine**.
+> * *(Optional)* If you want to enable live Google Gemini responses for the chat drawer, create a `.env` file in the root directory:
+>   ```env
+>   GEMINI_API_KEY=your_gemini_api_key_here
+>   PORT=3000
+>   ```
+>   *(If left empty, the chatbot automatically uses intelligent clinical rule-based guidance).*
+
+---
+
+### Pre-Seeded Accounts for Immediate Testing:
+
+| Role | Email | Password | Access Highlights |
+| :--- | :--- | :--- | :--- |
+| **Patient** | `patient@matern.org` | `password123` | Patient dashboard, GDM & Cervical telemetry, 7-day nutrition chart, daily vitamin adherence logger |
+| **Doctor** | `doctor@matern.org` | `password123` | Cohort drill-down, patient clinical notes, dietary approval, direct messaging |
+| **Admin** | `admin@matern.org` | `password123` | ML model governance, retraining workflow, audit logs, user management |
+
+*You can also click **"Register Patient"** on the login screen to register any new account.*
 
 ---
 
