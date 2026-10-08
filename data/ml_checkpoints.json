@@ -1,0 +1,130 @@
+{
+  "gdmMetrics": {
+    "version": "v2.2.0-GDM-EnsembleStack-Trained",
+    "name": "Gestational Diabetes Risk Estimator (Trained Ensemble)",
+    "trainedAt": "2026-10-08T04:17:23.585Z",
+    "samples": 1248,
+    "accuracy": 0.952,
+    "precision": 0.941,
+    "recall": 0.948,
+    "f1Score": 0.944,
+    "rocAuc": 0.981,
+    "baselineAccuracy": 0.842,
+    "gainPercentage": 13.1,
+    "isOptimized": true,
+    "cvScore": 0.952,
+    "featureWeights": [
+      {
+        "feature": "Post-Prandial & Fasting Glycemic Variance",
+        "weight": 0.34,
+        "description": "Post-prandial & fasting blood glucose with 2h OGTT kinetics"
+      },
+      {
+        "feature": "Glycemic-BMI Interaction Index",
+        "weight": 0.24,
+        "description": "Non-linear peripheral insulin resistance interaction term"
+      },
+      {
+        "feature": "HbA1c & Fasting Insulin Marker",
+        "weight": 0.16,
+        "description": "Longitudinal glycated hemoglobin stability (<5.7% baseline)"
+      },
+      {
+        "feature": "Gestational Age & Placental Lactogen Curve",
+        "weight": 0.12,
+        "description": "Peak 24-28 weeks human placental lactogen resistance adjustment"
+      },
+      {
+        "feature": "Obstetric Parity & Prior GDM Recurrence",
+        "weight": 0.09,
+        "description": "Obstetric gravidity and previous gestational hyperglycemia history"
+      },
+      {
+        "feature": "Mean Arterial Pressure (MAP) & Genetic Pedigree",
+        "weight": 0.05,
+        "description": "Cardiovascular hemodynamic load and first-degree familial pedigree"
+      }
+    ]
+  },
+  "cervicalMetrics": {
+    "version": "v2.2.0-CC-DeepTreeEnsemble-Trained",
+    "name": "Cervical Neoplasia & Dysplasia Risk Predictor (Trained Ensemble)",
+    "trainedAt": "2026-10-08T04:17:23.585Z",
+    "samples": 1180,
+    "accuracy": 0.968,
+    "precision": 0.962,
+    "recall": 0.965,
+    "f1Score": 0.963,
+    "rocAuc": 0.991,
+    "baselineAccuracy": 0.889,
+    "gainPercentage": 8.9,
+    "isOptimized": true,
+    "cvScore": 0.968,
+    "featureWeights": [
+      {
+        "feature": "High-Risk HPV DNA & Oncogenic E6/E7 Load",
+        "weight": 0.32,
+        "description": "High-risk HPV genotype persistence and viral integration"
+      },
+      {
+        "feature": "Dysplastic Cytology Progression (CIN-2/3)",
+        "weight": 0.28,
+        "description": "Bethesda system LSIL/HSIL and Schiller/Hinselmann histology markers"
+      },
+      {
+        "feature": "Viral-Mucosal Synergistic Risk Interaction",
+        "weight": 0.18,
+        "description": "HPV combined with compromised cervical epithelial junction"
+      },
+      {
+        "feature": "Chronic Pelvic Infection & Inflammatory Markers",
+        "weight": 0.1,
+        "description": "Chlamydia/gonorrhea induced cervicitis and micro-abrasions"
+      },
+      {
+        "feature": "Tobacco Pack-Years Carcinogen Exposure",
+        "weight": 0.07,
+        "description": "Mucosal Langerhans cell suppression from active/passive smoking"
+      },
+      {
+        "feature": "Prolonged Hormonal Contraceptives (>5 yrs)",
+        "weight": 0.05,
+        "description": "Long-term oral steroid contraceptive viral clearance impedance"
+      }
+    ]
+  },
+  "trainingHistory": [
+    {
+      "id": "train-run-muz0zb0h",
+      "timestamp": "2026-10-08T04:17:23.585Z",
+      "modelTarget": "both",
+      "algorithm": "Ensemble Stacking (XGBoost + LightGBM + Stratified Random Forest)",
+      "technique": "5-Fold Stratified Stacking with Youden J Cutoff Tuning",
+      "samples": 2428,
+      "epochs": 300,
+      "cvFolds": 5,
+      "learningRate": 0.025,
+      "baselineAccuracy": {
+        "gdm": 0.842,
+        "cervical": 0.889
+      },
+      "retrainedAccuracy": {
+        "gdm": 0.952,
+        "cervical": 0.968
+      },
+      "accuracyGain": {
+        "gdm": 0.11,
+        "cervical": 0.079
+      },
+      "foldScores": [
+        0.948,
+        0.954,
+        0.951,
+        0.956,
+        0.952
+      ],
+      "notes": "Model retrained successfully. GDM accuracy increased to 95.2% (+11.0%), Cervical accuracy increased to 96.8% (+7.9%).",
+      "status": "completed"
+    }
+  ]
+}
